@@ -26,7 +26,7 @@
  */
 
  /**
- * @param {number} x
+ * @param {string} x
  * @return {boolean}
  */
 var isPalindrome = function(x) {
@@ -40,3 +40,5 @@ var isPalindrome = function(x) {
 
     return true;
 };
+
+module.exports = isPalindrome;

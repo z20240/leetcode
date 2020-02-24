@@ -23,14 +23,13 @@ var twoSum = function(nums, target) {
     for (let i = 0 ; i < l ; i++) {
         const num = nums[i];
 
-        next_i = nums.slice(i+1, l).findIndex(n => num + n === target);
+        next_i = nums.slice(i+1).findIndex(n => num + n === target);
 
-        if (next_i >= 0) return [i, i+1+next_i];
+        if (next_i >= 0) return [i, next_i+i+1];
     }
 
     return []
 
 };
 
-
-console.log(twoSum([3, 2, 3], 6))
+module.exports = twoSum;
