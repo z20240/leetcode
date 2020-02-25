@@ -29,7 +29,10 @@ function ListNode(val) {
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
+
     let s1 = '', s2 = '';
+
+    // Traversal the linked list to collect the value to string.
     for (let n1 = l1, n2 = l2; n1 || n2 ; (n1 = n1 ? n1.next : n1), (n2 = n2 ? n2.next : n2)) {
         if (n1) s1 += n1.val;
         if (n2) s2 += n2.val;
@@ -40,15 +43,18 @@ var addTwoNumbers = function(l1, l2) {
     let n1 = 0n, n2 = 0n;
 
 
+    // Traversal from tail to convert the string to number.
     for (let i = MAX_LENGTH-1; i >= 0 ; i--) {
         n1 += BigInt(s1[i] || 0) * (10n**BigInt(i));
         n2 += BigInt(s2[i] || 0) * (10n**BigInt(i));
     }
 
+    // sum two numbers
     const sa = String(n1 + n2);
     const lsa = sa.length;
     let res = null, p = null;
 
+    // Traversal from tail to convert the number by digits to a linked list.
     for (let i = lsa-1 ; i >= 0 ; i--) {
 
         const v = new ListNode(Number(sa[i]));
