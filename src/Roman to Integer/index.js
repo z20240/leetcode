@@ -62,7 +62,6 @@ var romanToInt = function(s) {
 
     for (let i = 0 ; i < s.length ; i++) {
         const n = char_num_map[ s[i] ];
-        console.log("TCL: romanToInt -> n", n, pre)
 
         if (n === 5 && pre === 1) sum += (n - 2*pre);
         else if (n === 50 && pre === 10) sum += (n - 2*pre);
@@ -76,6 +75,23 @@ var romanToInt = function(s) {
     }
 
     return sum
+};
+
+
+var romanToInt_v2 = function(s) {
+    const char_num_map = {
+        I: 1,   IV: 4,
+        V: 5,   IX: 9,
+        X: 10,  XL: 40,
+        L: 50,  XC: 90,
+        C: 100, CD: 400,
+        D: 500, CM: 900,
+        M: 1000,
+    };
+
+    const s_ary = s.match(/I(V|X)?|V|X(L|C)?|L|C(D|M)?|D|M/g);
+
+    return s_ary.reduce((total, ch) => total + char_num_map[ch], 0);
 };
 
 console.log(romanToInt("IX"));
