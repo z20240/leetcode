@@ -2,7 +2,8 @@
  * 21. Merge Two Sorted Lists
  * Easy
  *
- * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+ * Merge two sorted linked lists and return it as a new list.
+ * The new list should be made by splicing together the nodes of the first two lists.
  *
  * Example:
  *
@@ -25,7 +26,10 @@ var mergeTwoLists = function(l1, l2) {
 
     if (!l1 && !l2) return null;
 
-    l1.val > l2.val ? (bl = l2) && (il = l1) : (bl = l1) && (il = l2);
+    l1.val > l2.val
+        ? (bl = l2) && (il = l1)
+        : (bl = l1) && (il = l2);
+
     h = bl;
 
     while ( il ) {
