@@ -11,6 +11,14 @@ class ListNode {
     toJSON() {
         return {val: this.val, next: this.next}
     }
+
+    toArray() {
+        const ary = []
+        for (let p = this ; p ; p = p ? p.next : p) {
+            ary.push(p.val);
+        }
+        return ary;
+    }
 }
 
 var findTail = (list) => {
@@ -51,7 +59,6 @@ var createCycleList = (list, ary, cycle_pos) => {
     }
 
     return l;
-
 }
 
 module.exports.ListNode = ListNode;
