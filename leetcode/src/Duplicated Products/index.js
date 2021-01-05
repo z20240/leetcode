@@ -28,16 +28,18 @@
  * The last glove at index 3 has a different price from the other two, so it is not duplicate.
  *
  * There is 1 duplicate item in the original list.
+ *
+ * @format
  */
 
 /**
  *
  * @param {string[]} names
  * @param {number[]} prices
- * @param {number[]} weights
+ * @param {number[]} weights test *aaa*
  */
 const numDuplicates = (names, prices, weights) => {
-    const duplicateMap = /** @type { {[name_price_weight: string]: number} } */ ({})
+    const duplicateMap = /** @type { {[name_price_weight: string]: number} } */ ({});
 
     const NUM_OF_ITEMS = names.length;
 
@@ -47,12 +49,10 @@ const numDuplicates = (names, prices, weights) => {
         const key = `${names[i]}_${prices[i]}_${weights[i]}`;
 
         if (duplicateMap[key]) duplicateItems++;
-
         else duplicateMap[key] = 1;
     }
 
-    return duplicateItems
-}
-
+    return duplicateItems;
+};
 
 module.exports.numDuplicates = numDuplicates;
